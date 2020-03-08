@@ -1,12 +1,27 @@
 import React from 'react';
 
+import { connect } from 'react-redux'
+
+import { Redirect } from 'react-router-dom'
+
 class Write extends React.Component {
   render() {
-    return (
-      <div>
-        Write
-      </div>
-    )
+    const { loginStatus } = this.props
+    if (loginStatus) {
+      return (
+        <div>
+          Write
+        </div>
+      )
+    } else {
+      return <Redirect to='/login'/>
+    }
   }
 }
-export default Write
+
+const mapState = (state) => {
+  return {
+    loginStatus: state.getIn(['login', 'login'])
+  }
+}
+export default connect(mapState)(Write)

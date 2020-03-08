@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreateor } from './store/index'
+import {actionCreateor as loginActionCreateor} from '../../page/login/store/index'
 import {
   HeadWrapper,
   Logo,
@@ -51,8 +52,7 @@ class Header extends React.Component {
     }
   }
   render() {
-    const { focused, handleInputFocus, handleInputBlur, list } = this.props
-    console.log(focused)
+    const { focused, handleInputFocus, handleInputBlur, list, loginStatus,logout } = this.props
     return (
       <HeadWrapper>
         <Link to='/'>
@@ -63,9 +63,10 @@ class Header extends React.Component {
             <NavItem className='left  active'>首页</NavItem>
           </Link>
           <NavItem className='left'>下载app</NavItem>
+          {loginStatus ? <NavItem onClick={logout} className='right'>退出</NavItem> : 
           <Link to='/login'>
-            <NavItem className='right'>登录</NavItem>  
-          </Link>
+            <NavItem className='right'>登录</NavItem>
+          </Link>}
           <NavItem className='right'>
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -90,7 +91,7 @@ class Header extends React.Component {
             <Button className='writing'>
               <i className="iconfont">&#xe615;</i>
               写文章
-            </Button> 
+            </Button>
           </Link>
           <Button className='reg'>注册</Button>
         </Addition>
@@ -105,7 +106,8 @@ const mapStateToProps = (state) => {
     list: state.getIn(['header', 'list']),
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
-    mouseIn: state.getIn(['header', 'mouseIn'])
+    mouseIn: state.getIn(['header', 'mouseIn']),
+    loginStatus: state.getIn(['login', 'login'])
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -138,6 +140,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleMouseLeave() {
       dispatch(actionCreateor.mouseLeave())
+    },
+    logout() {
+      dispatch(loginActionCreateor.changeLogout())
     }
   }
 }

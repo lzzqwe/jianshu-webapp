@@ -30,6 +30,7 @@ export const NavItem = styled.div`
   padding:0 15px;
   font-size:18px;
   font-weight:600;
+  cursor: pointer;
   &.left {
     float:left;
   }
