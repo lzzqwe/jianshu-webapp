@@ -27,10 +27,10 @@ class Home extends React.PureComponent {
           <List list={newList}></List>
         </HomeLeft>
         <HomeRight>
-           <img className='right-item' src="http://localhost:3001/img/jianshu-1.png" alt=""/>
-           <img className='right-item' src="http://localhost:3001/img/jianshu-2.png" alt=""/>
-           <img className='right-item' src="http://localhost:3001/img/jianshu-3.png" alt=""/>
-           <img className='right-item' src="http://localhost:3001/img/jianshu-4.png" alt=""/> 
+           <img className='right-item' src="http://localhost:3000/img/jianshu-1.png" alt=""/>
+           <img className='right-item' src="http://localhost:3000/img/jianshu-2.png" alt=""/>
+           <img className='right-item' src="http://localhost:3000/img/jianshu-3.png" alt=""/>
+           <img className='right-item' src="http://localhost:3000/img/jianshu-4.png" alt=""/> 
         </HomeRight>
         {showScroll ? <BackTop onClick={() => {this.handleScrollTop()}}>顶部</BackTop>:null}
       </HomeWrapper>
