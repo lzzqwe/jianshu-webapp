@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {actionCreateor} from './store/index'
 import {LoginBox,LoginWrapper,Input,Button} from './style'
-class Login extends React.Component {
+class Login extends React.PureComponent {
   render() {
     const {loginStatus,login} = this.props
     if(!loginStatus) {

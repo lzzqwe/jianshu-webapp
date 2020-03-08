@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { Redirect } from 'react-router-dom'
 
-class Write extends React.Component {
+class Write extends React.PureComponent {
   render() {
     const { loginStatus } = this.props
     if (loginStatus) {

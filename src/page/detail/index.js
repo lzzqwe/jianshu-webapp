@@ -8,7 +8,7 @@ import {DetailWrapper,DetailHeader,Content} from './style'
 
 import {actionCreateor} from './store/index'
 
-class Detail extends React.Component {
+class Detail extends React.PureComponent {
   componentDidMount() {
    this.props.getDetail(this.props.match.params.id)
   }

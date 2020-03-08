@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {actionCreateor} from '../store/index'
 import { ListItem, ListInfo,LoadMore } from '../style'
 import { Link } from 'react-router-dom'
-class List extends React.Component {
+class List extends React.PureComponent {
   render() {
     const { list,page,getMoreList } = this.props
     return (

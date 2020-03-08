@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {actionCreateor} from './store/index'
 import {HomeWrapper,HomeLeft,HomeRight,BackTop} from './style'
 import List from './components/List'
-class Home extends React.Component {
+class Home extends React.PureComponent {
   componentDidMount() {
     this.props.changeHomeData()
     this.bindEvents()
